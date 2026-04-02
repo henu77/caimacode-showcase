@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm run:*)"
+    ],
+    "additionalDirectories": [
+      "d:\\桌面���份\\caimacode-showcase\\src\\assets\\projects\\teaching-demo"
+    ]
+  }
+}

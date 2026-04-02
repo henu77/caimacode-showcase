@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" fill="none">
+  <rect width="1200" height="720" rx="36" fill="url(#bg)"/>
+  <rect x="72" y="72" width="1056" height="576" rx="28" fill="#08111f" stroke="#47d7ff" stroke-opacity=".4"/>
+  <circle cx="220" cy="164" r="52" fill="#47d7ff" fill-opacity=".2"/>
+  <circle cx="980" cy="556" r="84" fill="#8b7bff" fill-opacity=".18"/>
+  <path d="M156 538C236 428 324 372 438 372C564 372 620 460 714 460C810 460 874 370 1016 248" stroke="#47d7ff" stroke-width="8" stroke-linecap="round"/>
+  <rect x="156" y="154" width="312" height="24" rx="12" fill="#47d7ff" fill-opacity=".8"/>
+  <rect x="156" y="208" width="488" height="24" rx="12" fill="#ffffff" fill-opacity=".88"/>
+  <rect x="156" y="262" width="382" height="18" rx="9" fill="#94a3b8" fill-opacity=".8"/>
+  <rect x="156" y="420" width="214" height="70" rx="18" fill="#47d7ff" fill-opacity=".18" stroke="#47d7ff"/>
+  <text x="156" y="122" fill="#dff6ff" font-size="36" font-family="Arial, sans-serif">菜码编程 / Brand Showcase</text>
+  <text x="196" y="464" fill="#dff6ff" font-size="28" font-family="Arial, sans-serif">Project Portfolio</text>
+  <defs>
+    <linearGradient id="bg" x1="88" y1="48" x2="1082" y2="668" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#020617"/>
+      <stop offset="1" stop-color="#111c38"/>
+    </linearGradient>
+  </defs>
+</svg>

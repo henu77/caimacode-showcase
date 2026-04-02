@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" fill="none">
+  <rect width="1200" height="720" rx="36" fill="url(#bg)"/>
+  <rect x="86" y="78" width="1028" height="564" rx="30" fill="#10172a" stroke="#8b7bff" stroke-opacity=".45"/>
+  <rect x="158" y="148" width="220" height="220" rx="28" fill="#8b7bff" fill-opacity=".18" stroke="#8b7bff"/>
+  <rect x="420" y="154" width="404" height="26" rx="13" fill="#ffffff" fill-opacity=".9"/>
+  <rect x="420" y="212" width="312" height="22" rx="11" fill="#c4b5fd" fill-opacity=".85"/>
+  <rect x="420" y="268" width="468" height="18" rx="9" fill="#94a3b8" fill-opacity=".78"/>
+  <rect x="420" y="314" width="422" height="18" rx="9" fill="#94a3b8" fill-opacity=".56"/>
+  <path d="M176 542H1004" stroke="#8b7bff" stroke-width="6" stroke-linecap="round"/>
+  <path d="M220 500L308 432L394 486L492 384L614 468L728 340L846 444L960 300" stroke="#47d7ff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="156" y="118" fill="#efe9ff" font-size="36" font-family="Arial, sans-serif">菜码编程 / Teaching Demo</text>
+  <text x="196" y="288" fill="#f5f3ff" font-size="30" font-family="Arial, sans-serif">案例讲解 · 项目拆解 · README</text>
+  <defs>
+    <linearGradient id="bg" x1="102" y1="64" x2="1080" y2="656" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#050816"/>
+      <stop offset="1" stop-color="#1c1640"/>
+    </linearGradient>
+  </defs>
+</svg>
