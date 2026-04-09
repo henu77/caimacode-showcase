@@ -1,59 +1,25 @@
 <template>
   <main class="page home-page">
-    <section class="home-hero">
-      <section class="hero-panel panel">
-        <SiteHeader />
-        <div class="hero-copy">
-          <p class="hero-kicker">中文排版 · 前端实现 · 案例叙事</p>
-          <h2>把作品做成能阅读、能浏览、也能持续扩展的中文案例站。</h2>
-          <p>
-            这里不是单纯堆放截图的项目目录，而是把品牌表达、关键画面、演示片段与项目说明整理成一套有秩序的浏览体验。
-          </p>
-        </div>
-      </section>
-
-      <section class="manifesto-panel panel">
-        <div class="section-heading">
-          <p>方法概览</p>
-          <h3>用更适合中文阅读的节奏，组织前端项目的展示方式。</h3>
-        </div>
-        <p>
-          从首页首屏到项目详情，这个站点强调的是案例如何被讲清楚：先建立气质，再呈现画面，再补上视频与说明，让每个项目都更像一篇完整的案例记录。
-        </p>
-        <ul class="tag-list">
-          <li>首页品牌叙事</li>
-          <li>案例化详情页</li>
-          <li>Markdown 长文容器</li>
-        </ul>
-      </section>
-    </section>
-
-    <section class="practice-section">
-      <div class="section-heading">
-        <p>实践维度</p>
-        <h2>围绕内容、界面与阅读体验组织项目。</h2>
-      </div>
-      <div class="practice-grid">
-        <article class="practice-card">
-          <strong>品牌与入口</strong>
-          <p>让首页先建立明确的气质与定位，而不是直接落入模板化项目列表。</p>
-        </article>
-        <article class="practice-card">
-          <strong>案例与演示</strong>
-          <p>把图片、视频和元信息按阅读顺序排列，让浏览过程更像翻阅案例而不是切换模块。</p>
-        </article>
-        <article class="practice-card">
-          <strong>正文与沉淀</strong>
-          <p>保留 README 的维护便利，同时给它更适合中文长文阅读的排版容器。</p>
-        </article>
+    <section class="home-topbar">
+      <SiteHeader />
+      <div class="search-panel panel">
+        <label class="search-label" for="project-search">搜索项目</label>
+        <input
+          id="project-search"
+          v-model.trim="searchQuery"
+          class="search-input"
+          type="search"
+          placeholder="搜索标题、摘要、标签或分类"
+        />
       </div>
     </section>
 
     <section class="project-list-section">
       <div class="section-heading">
-        <p>精选案例</p>
-        <h2>最近整理的前端展示与教学案例。</h2>
-        <p class="section-intro">项目继续通过数据配置扩展，但每一个入口都按案例阅读的方式呈现。</p>
+        <h2>项目预览</h2>
+        <p class="section-intro">
+          <template v-if="searchQuery">当前显示 {{ filteredProjects.length }} 个与“{{ searchQuery }}”相关的项目。</template>
+        </p>
       </div>
 
       <section v-if="isLoading" class="panel missing-panel">
@@ -67,31 +33,15 @@
         <p>{{ errorMessage }}</p>
       </section>
 
-      <template v-else>
-        <section v-if="featuredProjects.length" class="project-collection">
-          <div class="section-heading section-heading-inline">
-            <div>
-              <p>Featured</p>
-              <h2>重点案例</h2>
-            </div>
-          </div>
-          <div class="project-grid featured-grid">
-            <ProjectCard v-for="project in featuredProjects" :key="project.slug" :project="project" />
-          </div>
-        </section>
+      <section v-else-if="!filteredProjects.length" class="panel missing-panel">
+        <p class="section-label">EMPTY</p>
+        <h2>没有找到匹配项目。</h2>
+        <p>请尝试其他关键词。</p>
+      </section>
 
-        <section v-if="archiveProjects.length" class="project-collection">
-          <div class="section-heading section-heading-inline">
-            <div>
-              <p>Archive</p>
-              <h2>案例档案</h2>
-            </div>
-          </div>
-          <div class="project-grid archive-grid">
-            <ProjectCard v-for="project in archiveProjects" :key="project.slug" :project="project" />
-          </div>
-        </section>
-      </template>
+      <div v-else class="project-grid unified-grid">
+        <ProjectCard v-for="project in filteredProjects" :key="project.slug" :project="project" />
+      </div>
     </section>
   </main>
 </template>
@@ -106,9 +56,31 @@ import type { ProjectItem } from '../types/project'
 const projects = ref<ProjectItem[]>([])
 const isLoading = ref(true)
 const errorMessage = ref('')
+const searchQuery = ref('')
 
-const featuredProjects = computed(() => projects.value.filter((project) => project.featured))
-const archiveProjects = computed(() => projects.value.filter((project) => !project.featured))
+const filteredProjects = computed(() => {
+  const query = searchQuery.value.trim().toLowerCase()
+
+  if (!query) {
+    return projects.value
+  }
+
+  return projects.value.filter((project) => {
+    const haystack = [
+      project.title,
+      project.subtitle,
+      project.summary,
+      project.description,
+      project.tags.join(' '),
+      project.categories.join(' '),
+      project.highlights.join(' '),
+    ]
+      .join(' ')
+      .toLowerCase()
+
+    return haystack.includes(query)
+  })
+})
 
 onMounted(async () => {
   try {

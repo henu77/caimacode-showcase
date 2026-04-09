@@ -7,7 +7,17 @@
     </div>
     <div class="video-grid">
       <article v-for="video in videos" :key="video.title" class="video-card">
+        <button
+          v-if="activeVideo !== video.embedUrl"
+          type="button"
+          class="video-trigger"
+          @click="activeVideo = video.embedUrl"
+        >
+          <span class="video-trigger-play">▶</span>
+          <span class="video-trigger-text">点击播放视频</span>
+        </button>
         <iframe
+          v-else
           class="video-embed"
           :src="video.embedUrl"
           :title="video.title"
@@ -23,7 +33,10 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import type { ProjectVideo } from '../../types/project'
+
+const activeVideo = ref('')
 
 defineProps<{
   title: string
