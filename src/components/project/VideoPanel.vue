@@ -1,13 +1,13 @@
 <template>
-  <section class="video-panel">
+  <section v-if="videos.length" class="video-panel">
     <div class="section-heading">
-      <p>Video Clips</p>
-      <h2>视频展示</h2>
+      <p>Motion Notes</p>
+      <h2>{{ title }}</h2>
+      <p class="section-intro">用演示片段补充静态画面无法完整说明的交互节奏与页面切换过程。</p>
     </div>
     <div class="video-grid">
       <article v-for="video in videos" :key="video.title" class="video-card">
         <iframe
-          v-if="video.type === 'bilibili' && video.embedUrl"
           class="video-embed"
           :src="video.embedUrl"
           :title="video.title"
@@ -15,20 +15,8 @@
           allowfullscreen
           referrerpolicy="strict-origin-when-cross-origin"
         ></iframe>
-        <video
-          v-else-if="video.available !== false && video.src"
-          class="video-player"
-          controls
-          playsinline
-          :poster="video.poster"
-        >
-          <source :src="video.src" type="video/mp4" />
-          当前浏览器不支持视频播放。
-        </video>
-        <div v-else class="video-placeholder">
-          <span>替换为你的真实项目视频后，这里会直接播放，或直接配置 B 站嵌入地址。</span>
-        </div>
         <h3>{{ video.title }}</h3>
+        <p v-if="video.description" class="video-description">{{ video.description }}</p>
       </article>
     </div>
   </section>
@@ -38,6 +26,7 @@
 import type { ProjectVideo } from '../../types/project'
 
 defineProps<{
+  title: string
   videos: ProjectVideo[]
 }>()
 </script>

@@ -5,13 +5,22 @@
         <img class="cover-image" :src="project.cover" :alt="project.title" />
       </div>
       <div class="card-body">
+        <div class="card-topline">
+          <span class="card-category">{{ project.categories[0] || '案例项目' }}</span>
+          <span class="card-year">{{ project.year || project.publishedAt }}</span>
+        </div>
         <p class="subtitle">{{ project.subtitle }}</p>
         <h2>{{ project.title }}</h2>
-        <p class="description">{{ project.description }}</p>
-        <ul class="tag-list">
-          <li v-for="tag in project.tags" :key="tag">{{ tag }}</li>
+        <p class="description">{{ project.summary }}</p>
+        <ul v-if="project.highlights.length" class="card-highlights">
+          <li v-for="highlight in project.highlights.slice(0, 2)" :key="highlight">{{ highlight }}</li>
         </ul>
-        <span class="card-action">查看详情</span>
+        <div class="card-footer">
+          <ul class="tag-list">
+            <li v-for="tag in project.tags.slice(0, 3)" :key="tag">{{ tag }}</li>
+          </ul>
+          <span class="card-action">阅读案例</span>
+        </div>
       </div>
     </RouterLink>
   </article>

@@ -1,5 +1,12 @@
 <template>
-  <main v-if="project" class="page detail-page" :style="{ '--project-accent': project.accent }">
+  <main v-if="isLoading" class="page missing-page">
+    <section class="panel missing-panel">
+      <p class="section-label">LOADING</p>
+      <h1>正在加载项目内容...</h1>
+    </section>
+  </main>
+
+  <main v-else-if="project" class="page detail-page" :style="{ '--project-accent': project.accent }">
     <div class="detail-shell">
       <div class="detail-topbar">
         <RouterLink class="back-link" to="/">← 返回首页</RouterLink>
@@ -9,19 +16,31 @@
         <div class="detail-copy">
           <p class="hero-kicker">{{ project.subtitle }}</p>
           <h1>{{ project.title }}</h1>
+          <p class="detail-summary">{{ project.summary }}</p>
           <p class="detail-description">{{ project.description }}</p>
+          <div v-if="project.meta.length" class="detail-meta">
+            <article v-for="item in project.meta" :key="`${item.label}-${item.value}`" class="meta-item">
+              <span class="meta-label">{{ item.label }}</span>
+              <span class="meta-value">{{ item.value }}</span>
+            </article>
+          </div>
+          <ul v-if="project.highlights.length" class="highlight-list">
+            <li v-for="highlight in project.highlights" :key="highlight">{{ highlight }}</li>
+          </ul>
           <ul class="tag-list">
             <li v-for="tag in project.tags" :key="tag">{{ tag }}</li>
           </ul>
         </div>
-        <div class="detail-cover-wrap">
-          <img class="detail-cover" :src="project.cover" :alt="project.title" />
+        <div class="detail-cover-column">
+          <div class="detail-cover-wrap">
+            <img class="detail-cover" :src="project.cover" :alt="project.title" />
+          </div>
         </div>
       </section>
 
-      <MediaGallery :images="project.gallery" :title="project.title" />
-      <VideoPanel :videos="project.videos" />
-      <MarkdownRenderer :html="renderedReadme" />
+      <MediaGallery :images="project.gallery.images" :title="project.gallery.title" />
+      <VideoPanel :title="project.videos.title" :videos="project.videos.items" />
+      <MarkdownRenderer :html="renderedReadme" :title="project.readme.title" />
     </div>
   </main>
 
@@ -29,6 +48,7 @@
     <section class="panel missing-panel">
       <p class="section-label">NOT FOUND</p>
       <h1>没有找到这个项目。</h1>
+      <p v-if="errorMessage">{{ errorMessage }}</p>
       <RouterLink class="back-link" to="/">返回首页继续查看</RouterLink>
     </section>
   </main>
@@ -36,12 +56,13 @@
 
 <script setup lang="ts">
 import MarkdownIt from 'markdown-it'
-import { computed } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import MarkdownRenderer from '../components/project/MarkdownRenderer.vue'
 import MediaGallery from '../components/project/MediaGallery.vue'
 import VideoPanel from '../components/project/VideoPanel.vue'
-import { projects, readmeContentByKey } from '../content/projects'
+import { loadProjectBySlug, loadProjectReadme } from '../content/projects'
+import type { ProjectItem } from '../types/project'
 
 const markdown = new MarkdownIt({
   html: false,
@@ -50,17 +71,40 @@ const markdown = new MarkdownIt({
 })
 
 const route = useRoute()
+const project = ref<ProjectItem | null>(null)
+const readmeSource = ref('')
+const isLoading = ref(true)
+const errorMessage = ref('')
 
-const project = computed(() =>
-  projects.find((item) => item.slug === String(route.params.slug)),
-)
+const renderedReadme = computed(() => markdown.render(readmeSource.value || '# README 暂未提供'))
 
-const renderedReadme = computed(() => {
-  if (!project.value) {
-    return ''
+async function loadCurrentProject() {
+  const slug = String(route.params.slug || '')
+
+  if (!slug) {
+    project.value = null
+    readmeSource.value = ''
+    errorMessage.value = '项目标识无效。'
+    isLoading.value = false
+    return
   }
 
-  const rawReadme = readmeContentByKey[project.value.readmeKey] ?? '# README 暂未提供'
-  return markdown.render(rawReadme)
-})
+  isLoading.value = true
+  errorMessage.value = ''
+
+  try {
+    const loadedProject = await loadProjectBySlug(slug)
+    project.value = loadedProject
+    readmeSource.value = await loadProjectReadme(loadedProject)
+  } catch {
+    project.value = null
+    readmeSource.value = ''
+    errorMessage.value = '请检查对应目录中的 project.json 是否存在且格式正确。'
+  } finally {
+    isLoading.value = false
+  }
+}
+
+onMounted(loadCurrentProject)
+watch(() => route.params.slug, loadCurrentProject)
 </script>
