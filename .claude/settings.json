@@ -2,10 +2,12 @@
   "permissions": {
     "allow": [
       "Bash(npm install:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "WebSearch",
+      "WebFetch(domain:docs.github.com)"
     ],
     "additionalDirectories": [
-      "d:\\桌面���份\\caimacode-showcase\\src\\assets\\projects\\teaching-demo"
+      "d:\\桌面备份\\caimacode-showcase\\public\\brand-showcase"
     ]
   }
 }
