@@ -43,12 +43,15 @@
         <ProjectCard v-for="project in filteredProjects" :key="project.slug" :project="project" />
       </div>
     </section>
+
+    <WechatContactSection />
   </main>
 </template>
 
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import SiteHeader from '../components/layout/SiteHeader.vue'
+import WechatContactSection from '../components/layout/WechatContactSection.vue'
 import ProjectCard from '../components/project/ProjectCard.vue'
 import { loadProjects } from '../content/projects'
 import type { ProjectItem } from '../types/project'

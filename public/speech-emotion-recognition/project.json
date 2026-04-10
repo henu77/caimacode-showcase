@@ -49,7 +49,12 @@
   "order": 999,
   "publishedAt": "2026-04-10",
   "links": {
-    "external": []
+    "external": [
+      {
+        "label": "公众号文章",
+        "url": "你的真实公众号文章链接"
+      }
+    ]
   },
   "seo": {
     "title": "基于深度学习的语音情感识别系统",
