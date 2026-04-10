@@ -1,0 +1,83 @@
+{
+  "slug": "speech-emotion-recognition",
+  "title": "基于深度学习的语音情感识别系统",
+  "subtitle": "面向本科课程设计的六分类语音情感识别与可视化演示项目",
+  "description": "一个基于 PyTorch 的语音情感识别项目，覆盖数据集划分、模型训练、评估可视化与 PyQt5 实时预测界面。",
+  "summary": [
+    "围绕愤怒、恐惧、开心、中性、悲伤、惊讶六类情感开展语音分类实验。",
+    "同时支持原始波形与 MFCC 频谱图两种输入方式，并提供多种 ResNet 结构。",
+    "包含训练曲线、混淆矩阵、PR 曲线和桌面图形界面，适合课程设计展示。"
+  ],
+  "year": 2026,
+  "role": "课程设计 / 深度学习项目实现",
+  "tags": [
+    "PyTorch",
+    "语音情感识别",
+    "音频分类",
+    "MFCC",
+    "ResNet",
+    "PyQt5"
+  ],
+  "categories": [
+    "人工智能",
+    "深度学习",
+    "课程设计"
+  ],
+  "cover": "./cover-home.png",
+  "gallery": {
+    "images": [
+      {
+        "src": "./gallery/01-ui-home.png",
+        "title": "系统主界面",
+        "alt": "语音情感识别系统的 PyQt5 主界面"
+      },
+      {
+        "src": "./gallery/02-confusion-matrix.png",
+        "title": "混淆矩阵",
+        "alt": "模型在六类情感识别任务上的混淆矩阵"
+      },
+      {
+        "src": "./gallery/03-accuracy-curve.png",
+        "title": "准确率曲线",
+        "alt": "训练与验证阶段的准确率变化曲线"
+      },
+      {
+        "src": "./gallery/04-pr-curve.png",
+        "title": "PR 曲线",
+        "alt": "六类情感识别任务的 Precision-Recall 曲线"
+      }
+    ]
+  },
+  "highlights": [
+    "构建了从原始 wav 数据整理到训练、验证、测试的完整实验流程。",
+    "实现原始波形 1D ResNet 与 MFCC 频谱图 ResNet 两类建模方案。",
+    "输出准确率、精确率、召回率、F1、混淆矩阵与 PR 曲线等多种评估结果。",
+    "提供 PyQt5 图形界面，支持本地音频预测与实时录音情感识别演示。"
+  ],
+  "meta": {
+    "projectType": "course-design",
+    "dataset": "百度 AI Studio 情感语音数据集（README 中说明为 6 类共 300 条样本）",
+    "frameworks": [
+      "PyTorch",
+      "TorchAudio",
+      "PyQt5",
+      "scikit-learn"
+    ],
+    "platform": "Desktop"
+  },
+  "readme": {
+    "file": "./README.md"
+  },
+  "videos": {
+    "items": [      {
+        "title": "系统演示视频",
+        "type": "bilibili",
+        "embedUrl": "https://player.bilibili.com/player.html?bvid=BV1Lt5MzTEaz&page=1",
+        "description": "展示系统的主界面、功能以及项目实现细节的讲解，适合课程设计展示使用。"
+      }]
+  },
+  "seo": {
+    "title": "基于深度学习的语音情感识别系统",
+    "description": "展示一个基于 PyTorch 的六分类语音情感识别课程设计项目，包含数据处理、模型训练、评估可视化与桌面交互界面。"
+  }
+}

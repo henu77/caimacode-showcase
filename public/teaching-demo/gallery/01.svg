@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" fill="none">
-  <rect width="1200" height="720" rx="36" fill="#060913"/>
-  <rect x="84" y="84" width="1032" height="552" rx="28" fill="#10182a" stroke="#47d7ff" stroke-opacity=".3"/>
-  <path d="M184 496L302 392L420 438L548 296L678 384L812 250L960 332L1016 274" stroke="#47d7ff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-  <rect x="180" y="156" width="286" height="22" rx="11" fill="#e0f2fe"/>
-  <rect x="180" y="206" width="220" height="18" rx="9" fill="#94a3b8"/>
-  <text x="180" y="580" fill="#dff6ff" font-size="30" font-family="Arial, sans-serif">学习路径 / 数据流 / 功能拆解</text>
-</svg>

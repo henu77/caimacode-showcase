@@ -90,20 +90,21 @@ async function main() {
       {
         slug,
         title,
-        subtitle: `围绕 ${title} 整理项目定位与案例叙事`,
-        description: '请在这里填写项目简介。',
-        summary: '请在这里补充一句适合首页与详情页概览使用的案例摘要。',
+        subtitle: '请写一句能概括项目定位的副标题。',
+        description: '请写一段用于详情页开头的项目说明，交代背景、目标和核心价值。',
+        summary: '请写一句用于首页卡片展示的短摘要。',
         year: new Date().getFullYear().toString(),
-        role: '界面设计 / 前端实现',
-        accent: '#7a5c3e',
+        role: '请填写你在项目中的角色，例如：界面设计 / 前端实现',
+        accent: '#3b82f6',
         cover: './cover.svg',
-        tags: ['中文案例', 'Vue 3'],
-        categories: ['未分类'],
+        tags: ['请填写标签 1', '请填写标签 2'],
+        categories: ['案例项目'],
         highlights: ['请补充案例亮点一', '请补充案例亮点二'],
         meta: [
           { label: '年份', value: new Date().getFullYear().toString() },
-          { label: '角色', value: '界面设计 / 前端实现' },
-          { label: '交付', value: '案例页、图像展示、视频嵌入' },
+          { label: '角色', value: '请填写你的角色' },
+          { label: '交付', value: '请填写交付内容，例如：展示站、案例页、组件库' },
+          { label: '场景', value: '请填写项目使用场景或项目类型' },
         ],
         featured: false,
         order: 999,
@@ -113,8 +114,8 @@ async function main() {
         },
         seo: {
           title: `${title}｜菜码编程`,
-          description: '请在这里填写 SEO 描述。',
-          keywords: [title, '菜码编程'],
+          description: '请填写 SEO 描述，概括项目内容与关键词。',
+          keywords: [title, '菜码编程', '项目展示'],
           ogImage: './cover.svg',
         },
         gallery: {
@@ -122,8 +123,8 @@ async function main() {
           images: [
             {
               src: './gallery/01.svg',
-              alt: `${title} 首页截图`,
-              caption: '请补充这张画面的说明。',
+              alt: `${title} 项目截图`,
+              caption: '请补充这张画面的说明，包括它展示的页面、模块或交互。',
             },
           ],
         },
@@ -131,10 +132,10 @@ async function main() {
           title: '演示片段',
           items: [
             {
-              title: 'B 站视频',
+              title: '请填写视频标题',
               type: 'bilibili',
-              embedUrl: 'https://player.bilibili.com/player.html?bvid=请替换为你的BVID&page=1',
-              description: '请补充视频说明。',
+              embedUrl: 'https://player.bilibili.com/player.html?bvid=请替换为你的BVID&page=1&autoplay=0',
+              description: '请补充这个视频展示的内容。',
             },
           ],
         },
@@ -150,7 +151,7 @@ async function main() {
 
   await writeFileIfMissing(
     path.join(projectDir, 'README.md'),
-    `# ${title}\n\n## 项目定位\n\n请在这里补充项目背景、目标和使用场景。\n\n## 关键亮点\n\n- 亮点一\n- 亮点二\n- 亮点三\n\n## 过程与实现\n\n可在这里整理设计思路、前端实现重点、视频说明与复盘内容。\n`,
+    `# ${title}\n\n## 项目定位\n\n请写清楚这个项目是做什么的、面向谁、解决什么问题。\n\n## 背景与目标\n\n说明项目背景、业务目标或练习目标，以及为什么要做这个项目。\n\n## 方案与实现\n\n整理页面结构、交互方式、设计思路和前端实现重点。\n\n## 关键亮点\n\n- 亮点一\n- 亮点二\n- 亮点三\n\n## 复盘\n\n总结项目中做得好的地方、不足之处，以及后续还能怎么优化。\n`,
   )
 
   await writeFileIfMissing(

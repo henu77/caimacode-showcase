@@ -1,7 +1,6 @@
 <template>
   <section v-if="images.length" class="media-gallery">
     <div class="section-heading">
-      <p>Case Frames</p>
       <h2>{{ title }}</h2>
       <p class="section-intro">围绕项目关键节点挑选的画面与界面片段，用来快速建立案例印象。</p>
     </div>
