@@ -7,6 +7,8 @@
   </main>
 
   <main v-else-if="project" class="page detail-page" :style="{ '--project-accent': project.accent }">
+    <FloatingNav />
+
     <div class="detail-shell">
       <div class="detail-topbar">
         <RouterLink class="back-link" to="/">← 返回首页</RouterLink>
@@ -41,8 +43,8 @@
       <MediaGallery :images="project.gallery.images" :title="project.gallery.title" />
       <VideoPanel :title="project.videos.title" :videos="project.videos.items" />
       <ProjectLinksPanel :links="project.links" />
-      <WechatContactSection title="联系与关注" description="欢迎扫码联系，或通过项目页中的公众号文章链接继续查看更完整的项目说明。" />
       <MarkdownRenderer :html="renderedReadme" :title="project.readme.title" />
+      <WechatContactSection id="contact" title="联系与关注" description="欢迎扫码联系，或通过项目页中的公众号文章链接继续查看更完整的项目说明。" />
     </div>
   </main>
 
@@ -60,6 +62,7 @@
 import MarkdownIt from 'markdown-it'
 import { computed, onMounted, ref, watch } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
+import FloatingNav from '../components/common/FloatingNav.vue'
 import WechatContactSection from '../components/layout/WechatContactSection.vue'
 import MarkdownRenderer from '../components/project/MarkdownRenderer.vue'
 import MediaGallery from '../components/project/MediaGallery.vue'

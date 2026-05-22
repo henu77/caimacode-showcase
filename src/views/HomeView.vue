@@ -18,7 +18,7 @@
       <div class="section-heading">
         <h2>项目预览</h2>
         <p class="section-intro">
-          <template v-if="searchQuery">当前显示 {{ filteredProjects.length }} 个与“{{ searchQuery }}”相关的项目。</template>
+          <template v-if="searchQuery">当前显示 {{ filteredProjects.length }} 个与"{{ searchQuery }}"相关的项目。</template>
         </p>
       </div>
 
@@ -40,7 +40,12 @@
       </section>
 
       <div v-else class="project-grid unified-grid">
-        <ProjectCard v-for="project in filteredProjects" :key="project.slug" :project="project" />
+        <ProjectCard
+          v-for="project in filteredProjects"
+          :key="project.slug"
+          :project="project"
+          :highlight="searchQuery"
+        />
       </div>
     </section>
 

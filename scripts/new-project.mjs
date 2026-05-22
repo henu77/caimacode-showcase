@@ -110,6 +110,9 @@ async function main() {
         order: 999,
         publishedAt: new Date().toISOString().slice(0, 10),
         links: {
+          demo: undefined,
+          repo: undefined,
+          xianyu: undefined,
           external: [],
         },
         seo: {

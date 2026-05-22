@@ -1,7 +1,7 @@
 {
   "slug": "speech-emotion-recognition",
   "title": "基于深度学习的语音情感识别系统",
-  "subtitle": "面向本科课程设计的六分类语音情感识别与可视化演示项目",
+  "subtitle": "语音情感识别与可视化演示项目，适用于课程设计展示",
   "description": "一个基于 PyTorch 的语音情感识别项目，覆盖数据集划分、模型训练、评估可视化与 PyQt5 实时预测界面。",
   "summary": "一个面向课程设计展示的语音情感识别项目，包含六分类实验流程、训练评估可视化和 PyQt5 桌面演示界面。",
   "year": "2026",
@@ -38,17 +38,14 @@
     },
     {
       "label": "技术栈",
-      "value": "PyTorch / TorchAudio / PyQt5 / scikit-learn"
-    },
-    {
-      "label": "运行平台",
-      "value": "Desktop"
+      "value": "PyTorch / TorchAudio / PyQt5"
     }
   ],
   "featured": false,
   "order": 999,
   "publishedAt": "2026-04-10",
   "links": {
+    "xianyu": "https://m.tb.cn/h.RdkOYQi?tk=S4eM5FL84zu",
     "external": [
       {
         "label": "公众号文章",

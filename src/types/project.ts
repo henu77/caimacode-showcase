@@ -19,6 +19,7 @@ export interface ProjectLink {
 export interface ProjectLinks {
   demo?: string
   repo?: string
+  xianyu?: string
   external: ProjectLink[]
 }
 
