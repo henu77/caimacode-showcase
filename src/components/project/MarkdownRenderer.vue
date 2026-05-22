@@ -59,7 +59,7 @@ defineProps<{
 .markdown-body h2,
 .markdown-body h3 {
   color: var(--color-text-primary);
-  margin: 1.8em 0 0.65em;
+  margin: 1.2em 0 0.4em;
   font-weight: 600;
 }
 
