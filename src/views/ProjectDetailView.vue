@@ -40,7 +40,6 @@
         </div>
       </section>
 
-      <MediaGallery :images="project.gallery.images" :title="project.gallery.title" />
       <VideoPanel :title="project.videos.title" :videos="project.videos.items" />
       <ProjectLinksPanel :links="project.links" />
       <MarkdownRenderer :html="renderedReadme" :title="project.readme.title" />
@@ -65,7 +64,6 @@ import { RouterLink, useRoute } from 'vue-router'
 import FloatingNav from '../components/common/FloatingNav.vue'
 import WechatContactSection from '../components/layout/WechatContactSection.vue'
 import MarkdownRenderer from '../components/project/MarkdownRenderer.vue'
-import MediaGallery from '../components/project/MediaGallery.vue'
 import ProjectLinksPanel from '../components/project/ProjectLinksPanel.vue'
 import VideoPanel from '../components/project/VideoPanel.vue'
 import { loadProjectBySlug, loadProjectReadme } from '../content/projects'

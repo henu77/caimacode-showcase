@@ -37,6 +37,7 @@ function normalizeLinks(links?: PublicProjectConfig['links']): ProjectLinks {
   return {
     demo: links?.demo,
     repo: links?.repo,
+    xianyu: links?.xianyu,
     external: links?.external ?? [],
   }
 }
@@ -94,16 +95,6 @@ function normalizeProject(raw: PublicProjectConfig, slug: string): ProjectItem {
     accent: raw.accent ?? '#2563eb',
     links: normalizeLinks(raw.links),
     seo: normalizeSeo(raw, slug, title, description),
-    gallery: {
-      title: raw.gallery?.title?.trim() || '关键画面',
-      images: (raw.gallery?.images ?? [])
-        .filter((item) => item?.src)
-        .map((item) => ({
-          src: resolveProjectAsset(slug, item.src),
-          alt: item.alt?.trim() || `${title} 图片`,
-          caption: item.caption?.trim() || '',
-        })),
-    },
     videos: {
       title: raw.videos?.title?.trim() || '演示片段',
       items: (raw.videos?.items ?? [])

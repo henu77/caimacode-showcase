@@ -1,9 +1,3 @@
-export interface ProjectImage {
-  src: string
-  alt: string
-  caption?: string
-}
-
 export interface ProjectVideo {
   title: string
   type: 'bilibili'
@@ -35,11 +29,6 @@ export interface ProjectMetaItem {
   value: string
 }
 
-export interface ProjectGallerySection {
-  title: string
-  images: ProjectImage[]
-}
-
 export interface ProjectVideoSection {
   title: string
   items: ProjectVideo[]
@@ -48,12 +37,6 @@ export interface ProjectVideoSection {
 export interface ProjectReadmeSection {
   title: string
   url: string
-}
-
-interface PublicProjectImage {
-  src?: string
-  alt?: string
-  caption?: string
 }
 
 interface PublicProjectVideo {
@@ -96,10 +79,6 @@ export interface PublicProjectConfig {
     keywords?: string[]
     ogImage?: string
   }
-  gallery?: {
-    title?: string
-    images?: PublicProjectImage[]
-  }
   videos?: {
     title?: string
     items?: PublicProjectVideo[]
@@ -129,7 +108,6 @@ export interface ProjectItem {
   accent: string
   links: ProjectLinks
   seo: ProjectSeo
-  gallery: ProjectGallerySection
   videos: ProjectVideoSection
   readme: ProjectReadmeSection
 }
