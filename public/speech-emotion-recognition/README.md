@@ -131,7 +131,7 @@
 
 除了加载文件进行预测，用户还可以点击”录音”按钮，使用麦克风进行实时录音。系统会在后台持续进行情感识别，并将识别结果实时反馈到界面上。这种交互方式使得模型的效果能够直观地展现出来。
 
-![系统主界面](./public/speech-emotion-recognition/gallery/01-ui-home.png)
+![系统主界面](./gallery/01-ui-home.png)
 
 ### 混淆矩阵
 
@@ -139,7 +139,7 @@
 
 通过观察混淆矩阵，可以发现模型在某些情感类别上的表现特别好（对角线元素较大），而在某些类别对之间容易混淆（非对角线元素较大）。这些信息对于理解模型的优缺点、进一步改进模型都很有帮助。
 
-![混淆矩阵](./public/speech-emotion-recognition/gallery/02-confusion-matrix.png)
+![混淆矩阵](./gallery/02-confusion-matrix.png)
 
 ### 准确率变化曲线
 
@@ -147,7 +147,7 @@
 
 如果训练准确率持续上升而验证准确率停滞不前，说明模型可能过拟合了。如果两条曲线都比较平坦，说明模型可能欠拟合了。在这个项目中，两条曲线都呈现出良好的上升趋势，说明模型的学习过程是有效的。
 
-![准确率变化曲线](./public/speech-emotion-recognition/gallery/03-accuracy-curve.png)
+![准确率变化曲线](./gallery/03-accuracy-curve.png)
 
 ### Precision-Recall 曲线
 
@@ -155,6 +155,6 @@ PR 曲线是评估分类模型在不同阈值下性能的工具。在这个项�
 
 曲线越接近右上角，说明模型的性能越好。通过观察不同类别的 PR 曲线，可以看出模型在不同情感类别上的表现差异。有些类别的曲线接近右上角，说明模型对这些类别的识别效果很好；而有些类别的曲线则相对靠下，说明模型在这些类别上还有改进的空间。
 
-![Precision-Recall 曲线](./public/speech-emotion-recognition/gallery/04-pr-curve.png)
+![Precision-Recall 曲线](./gallery/04-pr-curve.png)
 
 

@@ -69,13 +69,31 @@ import VideoPanel from '../components/project/VideoPanel.vue'
 import { loadProjectBySlug, loadProjectReadme } from '../content/projects'
 import type { ProjectItem } from '../types/project'
 
+const baseUrl = import.meta.env.BASE_URL
+const route = useRoute()
+
 const markdown = new MarkdownIt({
   html: false,
   breaks: true,
   linkify: true,
 })
 
-const route = useRoute()
+// 添加插件来处理图片路径
+markdown.renderer.rules.image = function (tokens: any[], idx: number) {
+  const token = tokens[idx]
+  const src = token.attrGet('src')
+  const alt = token.content
+  const slug = String(route.params.slug || '')
+
+  // 如果是相对路径（不以 / 或 http 开头），则加上项目前缀
+  let resolvedSrc = src
+  if (src && !src.startsWith('/') && !src.startsWith('http')) {
+    resolvedSrc = `${baseUrl}${slug}/${src.replace(/^\.\//, '')}`
+  }
+
+  return `<img src="${resolvedSrc}" alt="${alt}" />`
+}
+
 const project = ref<ProjectItem | null>(null)
 const readmeSource = ref('')
 const isLoading = ref(true)
