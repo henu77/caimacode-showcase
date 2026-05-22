@@ -1,5 +1,5 @@
 <template>
-  <section v-if="videos.length" class="video-panel">
+  <section v-if="videos.length" class="video-panel" id="videos">
     <div class="section-heading">
       <h2>{{ title }}</h2>
       <p class="section-intro">用演示片段补充静态画面无法完整说明的交互节奏与页面切换过程。</p>

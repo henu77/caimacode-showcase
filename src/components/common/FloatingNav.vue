@@ -27,11 +27,11 @@
       </a>
 
       <a
-        href="#gallery"
+        href="#videos"
         class="nav-item"
-        title="关键画面"
+        title="演示视频"
       >
-        🖼️
+        🎬
       </a>
 
       <button
