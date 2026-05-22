@@ -82,6 +82,7 @@ defineProps<{
 .markdown-body th {
   color: var(--color-text-secondary);
   font-size: var(--text-body);
+  line-height: 1.6;
 }
 
 .markdown-body p,
@@ -91,7 +92,7 @@ defineProps<{
 .markdown-body pre,
 .markdown-body table,
 .markdown-body hr {
-  margin: 0 0 1.05em;
+  margin: 0 0 0.8em;
 }
 
 .markdown-body ul,
