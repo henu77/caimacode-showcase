@@ -1,0 +1,87 @@
+{
+  "slug": "music-style-classification-mel-resnet",
+  "title": "基于注意力机制和 ResNet18 的梅尔频谱音乐风格分类系统",
+  "subtitle": "十分类音乐风格识别深度学习项目",
+  "description": "一个基于 PyTorch 和 ResNet18 的音乐风格分类系统，使用梅尔频谱作为音频特征，并通过 CBAM 注意力机制和多尺度卷积进行模型改进。项目包含完整的数据处理、模型训练、对比实验和图形化推理界面。最佳模型在 30s 数据上达到 82% 准确率。",
+  "summary": "支持 10 种音乐风格分类，最佳模型准确率 82%，包含完整的实验对比和 PyQt5 推理界面",
+  "year": "2026",
+  "role": "课程设计 / 深度学习项目实现",
+  "accent": "#3b82f6",
+  "cover": "./cover-home.png",
+  "tags": [
+    "PyTorch",
+    "ResNet18",
+    "音乐分类",
+    "梅尔频谱",
+    "注意力机制",
+    "CBAM",
+    "深度学习"
+  ],
+  "categories": [
+    "深度学习",
+    "音频处理"
+  ],
+  "highlights": [
+    "8 组对比实验：4 模型 × 2 数据版本",
+    "最佳模型准确率 82%，AUC 0.9696",
+    "多尺度卷积 + CBAM 注意力混合改进",
+    "PyQt5 GUI 支持多种推理方式"
+  ],
+  "meta": [
+    {
+      "label": "项目类型",
+      "value": "课程设计 / 深度学习项目"
+    },
+    {
+      "label": "技术栈",
+      "value": "PyTorch / torchaudio / librosa / PyQt5"
+    },
+    {
+      "label": "数据集",
+      "value": "GTZAN (10 类，1000 首歌曲)"
+    },
+    {
+      "label": "最佳性能",
+      "value": "准确率 82% / AUC 0.9696"
+    }
+  ],
+  "featured": false,
+  "order": 999,
+  "publishedAt": "2026-05-23",
+  "links": {
+    "xianyu": "https://goofish.com/item?id=1054778964287",
+    "external": [
+      {
+        "label": "公众号文章",
+        "url": "https://mp.weixin.qq.com/s/zacTyDElNmYMCZAJzwSLoQ"
+      }
+    ]
+  },
+  "seo": {
+    "title": "基于注意力机制和 ResNet18 的梅尔频谱音乐风格分类系统",
+    "description": "PyTorch 深度学习项目，使用 ResNet18 和 CBAM 注意力机制进行音乐风格分类，支持 10 种音乐类型识别，最佳模型准确率 82%，包含完整的数据处理、模型训练和图形化推理界面。",
+    "keywords": [
+      "音乐分类",
+      "梅尔频谱",
+      "ResNet18",
+      "CBAM 注意力",
+      "PyTorch",
+      "深度学习",
+      "音频处理"
+    ],
+    "ogImage": "./cover-home.png"
+  },
+  "videos": {
+    "title": "演示片段",
+    "items": [     {
+        "title": "系统演示视频",
+        "type": "bilibili",
+        "embedUrl": "https://player.bilibili.com/player.html?bvid=BV1ErDmBtE3U&page=1&autoplay=0",
+        "description": "展示系统主界面、功能流程以及项目实现细节，适合课程设计展示使用。"
+      }]
+  },
+  "readme": {
+    "file": "./README.md",
+    "title": "项目说明"
+  }
+}

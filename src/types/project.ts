@@ -5,6 +5,12 @@ export interface ProjectVideo {
   description?: string
 }
 
+export interface ProjectImage {
+  src: string
+  alt: string
+  caption?: string
+}
+
 export interface ProjectLink {
   label: string
   url: string
@@ -71,6 +77,7 @@ export interface PublicProjectConfig {
   links?: {
     demo?: string
     repo?: string
+    xianyu?: string
     external?: ProjectLink[]
   }
   seo?: {

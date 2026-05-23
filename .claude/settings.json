@@ -5,9 +5,7 @@
       "Bash(npm run:*)",
       "WebSearch",
       "WebFetch(domain:docs.github.com)"
-    ],
-    "additionalDirectories": [
-      "d:\\桌面备份\\caimacode-showcase\\public\\brand-showcase"
     ]
+
   }
 }

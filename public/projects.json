@@ -1,5 +1,6 @@
 {
   "projects": [
+    "music-style-classification-mel-resnet",
     "speech-emotion-recognition"
   ]
 }
